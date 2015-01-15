@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html id = "html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//nik.oplab.org/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" media="all" href="//nik.oplab.org/css/whhg.css">
+        <link rel="stylesheet" type="test/css" href="//nik.oplab.org/css/slider.css">
+        <title>Puzzle</title>
+        
+        <script src="//nik.oplab.org/js/jquery.min.js"></script>
+        <script src="//nik.oplab.org/js/bootstrap.min.js"></script>
+        <script src="//nik.oplab.org/js/bootstrap-slider.js"></script>
+        <script async src="js/code.js"></script>
+        <link rel="icon" type="image/png" href="images/favicon.png">        
+    </head>
+    
+    <body id = "body" onload="start()">                
+        <center>
+            <ul class="nav nav-tabs nav-justified" id = "navbar" role="tablist">
+                
+            </ul>
+        </center>
+        <div style = "margin: auto; width: auto" id = "main">
+            <div style = "float:left" id = "left">
+                <canvas id="canvas" width = 900 height = 800>        
+                </canvas>        
+            </div>        
+            
+            <div  style = "display: inline-block; margin-top: 100px" id = "right">
+                <div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary" id = "next_step" onclick = "if (now_running) {num_frames_trans = max_frames_trans;}else if (paused && can_continue) {num_frames_trans = max_frames_trans; run();} else {start_run(1)}"><span style = "font-size: 30px" class = "icon-next"></span></button>
+                        <button type="button" class="btn btn-primary" id = "start" onclick = "start_run()"><span style = "font-size: 30px" class = "icon-play"></span></button>
+                        <button type="button" class="btn btn-primary" id = "pause" onclick = "can_continue = 1; pause()"><span style = "font-size: 30px" class = "icon-pause"></span></button>
+                        <button type="button" class="btn btn-primary" id = "stop" onclick = "stop()"><span style = "font-size: 30px" class = "icon-stop"></span></button>
+                    </div>
+                </div>
+                <br>
+                <div id = "controls">
+                        
+                </div>
+                <br>
+                <div>
+                <h4>Скорость движения:</h4>            
+                <div>                              
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary" onclick="setted_speed = 20">
+                            <input type="radio">Медленно
+                        </label>
+                        <label class="btn btn-primary active" onclick="setted_speed = 10">
+                            <input type="radio">Средне
+                        </label>
+                        <label class="btn btn-primary" onclick="setted_speed = 0">
+                            <input type="radio">Быстро
+                        </label>                        
+                    </div>
+                </div>
+                </div>
+                <br>
+                <h4>Машинный код:</h4>            
+                <input readonly type = "text" id = "output">
+            </div>
+
+            <div style = "clear: both">
+            </div>
+        </div>
+        
+        
+        <font size = 3 style = "position: absolute; bottom: 10px; right: 10px">
+        <h5>
+        <strong>Budin Nikolay</strong>, 2014
+        <br>
+        © <a href="http://www.robozzle.com/">www.robozzle.com</a>
+        </h5>
+        </font>     
+        <div id = "alerts" style = "position: absolute; width: 50%; bottom: 10px; left: 25%">
+            
+        </div>
+    </body>    
+    
+
+</html>
